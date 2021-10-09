@@ -53,4 +53,12 @@ function animate() {
     renderer.render(scene, camera);
 }
 init();
-console.log(container.clientHeight + " " + container.clientWidth);
+
+function onWindowResize(){
+    camera.aspect = this.aspect;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize(container.clientWidth, container.clientHeight);
+}
+
+window.addEventListener('resize', onWindowResize)
